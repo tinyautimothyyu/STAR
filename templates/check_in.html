@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Check In</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <style>
+            body {
+                background-color: #F3EBF6;
+                font-family: 'Ubuntu', sans-serif;
+            }
+    
+            .main {
+                background-color: #FFFFFF;
+                width: 400px;
+                height: 450px;
+                margin: 7em auto;
+                border-radius: 1.0em;
+                box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+            }
+    
+            .checkin {
+                padding-top: 40px;
+                color: #8C55AA;
+                font-family: 'Ubuntu', sans-serif;
+                font-weight: bold;
+                font-size: 23px;
+            }
+
+            .message {
+                padding-left: 10px;
+                color: #030005;
+                font-family: 'Ubuntu', sans-serif;
+                font-size: 16px;
+            }
+            
+            form.form1 {
+                padding-top: 20px;
+                padding-left: 40px;
+                padding-right: 40px;
+                padding-bottom: 10px;
+                margin-left: 25%;
+            }
+
+            label {
+                font-family: 'Ubuntu', sans-serif;
+                font-size: 20px;
+                
+            }
+
+            .submit {
+                cursor: pointer;
+                border-radius: 5em;
+                color: #fff;
+                background: linear-gradient(to right, #9C27B0, #E040FB);
+                border: 0;
+                padding-left: 40px;
+                padding-right: 40px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                font-family: 'Ubuntu', sans-serif;
+                font-size: 13px;
+                margin-top: 20px;
+                box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+            }
+            
+            
+            @media (max-width: 600px) {.main {border-radius: 0px;}}
+        </style>     
+    </head>
+    <body>
+        <div class="main">
+            <p class="checkin" align="center">Check In</p>
+            <p class="message">Welcome back to AYAYA!</p>
+            <p class="message">Who is attending AYAYA today? Please check the boxes.</p>
+            <form class="form1" action="/check_in" method="post">
+
+                {% for member in famMembers %}
+                    <input class="check" type="checkbox" name={{member}} align="center" value={{member}}>
+                    <label for=member align="center">{{ member }}</label><br>
+                {% endfor %}
+                <button class="submit" type="submit">Submit</button>
+
+
+            </form>
+        </div>
+    </body>
+
+</html>
